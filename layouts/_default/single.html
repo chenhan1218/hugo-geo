@@ -5,6 +5,22 @@
 	<header>
 		<h1>{{ .Title }}</h1>
 	</header>
+		<h3>
+			<small>
+				{{ .Date.Format "2006-01-02" }}
+			</small>
+		</h3>
+
+	<div>
+		{{ if isset .Params "tags" }}
+		<small class="text-muted">
+			{{ $base := .Site.BaseURL }}
+			{{ range $tag := .Params.tags }}
+				<a href="{{ $base }}tags/{{ $tag | urlize }}"><span class="label label-success">{{ . }}</span></a>
+			{{ end }}
+		</small>
+		{{ end }}
+	</div>
 
 	<article>
 		{{ .Content }}

@@ -11,7 +11,7 @@
 </header>
 {{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Section" "post") }}
 {{ range $paginator.Pages }}
-	{{ .Render "summary"}}
+	{{ .Render "full"}}
 {{ end }}
 
 <div class="text-center center-block">
